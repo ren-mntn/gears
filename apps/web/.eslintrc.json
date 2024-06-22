@@ -1,0 +1,75 @@
+{
+  // 基本的なESLintの設定を継承
+  "extends": [
+    "next/core-web-vitals", // Next.jsの推奨設定
+    "plugin:@typescript-eslint/recommended", // TypeScriptの推奨設定
+    "eslint:recommended", // ESLintの推奨設定
+    "plugin:import/errors", // importのエラーを検出
+    "plugin:import/warnings" // importの警告を検出
+  ],
+  // TypeScriptのパーサーを使用
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    // TypeScriptの設定ファイルを指定
+    "project": "./tsconfig.json"
+  },
+  "settings": {
+    "import/resolver": {
+      // importの解決にTypeScriptの設定を使用
+      "typescript": {
+        "project": "./tsconfig.json"
+      }
+    }
+  },
+  // ESLintのチェック対象から除外するパターン
+  "ignorePatterns": ["node_modules/", "dist/", ".eslintrc.js"],
+  // 使用するESLintプラグイン
+  "plugins": ["@typescript-eslint", "import"],
+  "rules": {
+    // モジュール解決のエラーを無視（TypeScriptが処理するため）
+    "import/no-unresolved": "off",
+    // importの順序を制御（アルファベット順）
+    "import/order": [
+      "error",
+      {
+        "alphabetize": {
+          "order": "asc"
+        }
+      }
+    ],
+    // 厳格な真偽値の使用を強制
+    "@typescript-eslint/strict-boolean-expressions": [
+      "error",
+      {
+        "allowString": false,
+        "allowNumber": false,
+        "allowNullableObject": false,
+        "allowNullableBoolean": false,
+        "allowNullableString": false,
+        "allowNullableNumber": false,
+        "allowAny": false
+      }
+    ],
+    // any型の使用を禁止
+    "@typescript-eslint/no-explicit-any": "error",
+    // テンプレートリテラル内の式を制限
+    "@typescript-eslint/restrict-template-expressions": [
+      "error",
+      {
+        "allowNumber": false,
+        "allowBoolean": false,
+        "allowAny": false,
+        "allowNullish": false,
+        "allowRegExp": false
+      }
+    ],
+    // 未使用の変数を禁止
+    "@typescript-eslint/no-unused-vars": "error",
+    // 特定の型の使用を禁止（例：Function, Object）
+    "@typescript-eslint/ban-types": "error",
+    // 不必要な型アサーションを禁止
+    "@typescript-eslint/no-unnecessary-type-assertion": "error",
+    // 関数のパラメータ数を3つまでに制限
+    "max-params": ["error", 3]
+  }
+}
