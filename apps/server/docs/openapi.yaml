@@ -1,0 +1,112 @@
+openapi: 3.0.0
+info:
+  title: test fastify swagger
+  description: testing fastify swagger
+  version: 0.0.0
+components:
+  schemas: {}
+paths:
+  /products/:
+    get:
+      responses:
+        "200":
+          description: Default Response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  products:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        productId:
+                          type: string
+                        productName:
+                          type: string
+                        price:
+                          type: number
+                        imageName:
+                          type: string
+                        asin:
+                          type: string
+                        openSize:
+                          type: object
+                          properties:
+                            openDepth:
+                              type: number
+                            openHeight:
+                              type: number
+                            openWidth:
+                              type: number
+                        storageSize:
+                          type: object
+                          properties:
+                            storageDepth:
+                              type: number
+                            storageHeight:
+                              type: number
+                            storageWidth:
+                              type: number
+                        weight:
+                          type: number
+                        favoriteCount:
+                          type: number
+                        viewCount:
+                          type: number
+                        createdAt:
+                          type: string
+                        updatedAt:
+                          type: string
+                        brandName:
+                          type: string
+                        categoryName:
+                          type: string
+                        subCategoryName:
+                          type: string
+                        productTags:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              productTagName:
+                                type: string
+                        colorTags:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              colorTagName:
+                                type: string
+                        productAttributes:
+                          type: object
+                          properties:
+                            capacity:
+                              type: number
+                            inner_tent:
+                              type: string
+                            grand_sheet:
+                              type: string
+                            fabrics:
+                              type: string
+                        layouts:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              layoutId:
+                                type: number
+                              favoriteCount:
+                                type: number
+                              viewCount:
+                                type: number
+        "500":
+          description: Default Response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
