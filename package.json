@@ -1,0 +1,17 @@
+{
+  "private": true,
+  "name": "gears",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "husky": "^9.1.6",
+    "typescript": "^5.8.2"
+  },
+  "engines": {
+    "npm": "use pnpm!",
+    "yarn": "use pnpm!",
+    "pnpm": ">=9.1.0",
+    "node": ">=20.0.0"
+  }
+}
